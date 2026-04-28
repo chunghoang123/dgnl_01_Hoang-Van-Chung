@@ -54,25 +54,6 @@
         </tbody>
     </table>
 
-    <nav th:if="${artworkPage.totalPages > 1}">
-        <ul class="pagination">
-            <li class="page-item" th:classappend="${artworkPage.first} ? 'disabled'">
-                <a class="page-link"
-                   th:href="@{/artworks(page=${currentPage - 1}, keyword=${keyword})}">Trang trước</a>
-            </li>
-            <li class="page-item"
-                th:each="i : ${#numbers.sequence(0, artworkPage.totalPages - 1)}"
-                th:classappend="${i == currentPage} ? 'active'">
-                <a class="page-link"
-                   th:href="@{/artworks(page=${i}, keyword=${keyword})}"
-                   th:text="${i + 1}"></a>
-            </li>
-            <li class="page-item" th:classappend="${artworkPage.last} ? 'disabled'">
-                <a class="page-link"
-                   th:href="@{/artworks(page=${currentPage + 1}, keyword=${keyword})}">Trang sau</a>
-            </li>
-        </ul>
-    </nav>
 </div>
 </body>
 </html>

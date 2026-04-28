@@ -37,7 +37,7 @@ public class ArtworkController {
     public String list(@RequestParam(defaultValue = "0") int page,
                        @RequestParam(required = false) String keyword,
                        Model model) {
-        Pageable pageable = PageRequest.of(page, 5, Sort.by("id").descending());
+        Pageable pageable = PageRequest.of(page, 100, Sort.by("id").descending());
         Page<Artwork> artworkPage = artworkService.search(keyword, pageable);
 
         model.addAttribute("artworkPage", artworkPage);
